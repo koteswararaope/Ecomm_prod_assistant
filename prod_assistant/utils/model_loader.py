@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from prod_assistant.utils.config_loader import load_config
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain_groq import ChatGroq
-from prod_assistant.logger import GLOBAL_LOGGER as log
+from prod_assistant.logger import global_logger as log
 from prod_assistant.exception.custom_exception import ProductAssistantException
 import asyncio
 

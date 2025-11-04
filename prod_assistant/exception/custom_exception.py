@@ -2,11 +2,11 @@ import sys
 import traceback
 from typing import Optional, cast
 
-from logger.custom_struct_logger import CustomStructLogger
 
-logger = CustomStructLogger().get_logger(__file__)
+from prod_assistant.logger import global_logger as logger
 
-class DocumentPortalException(Exception):
+
+class ProductAssistantException(Exception):
     def __init__(self, error_message, error_details: Optional[object] = None):
         # Normalize message
         if isinstance(error_message, BaseException):

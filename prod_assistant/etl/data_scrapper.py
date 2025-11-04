@@ -8,7 +8,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
-
 class FlipkartScrapper:
     def __init__(self, output_dir ="data"):
         self.output_dir= output_dir

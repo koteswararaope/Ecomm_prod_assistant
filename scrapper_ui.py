@@ -1,8 +1,10 @@
 import streamlit as st
-#from data_scrapper.scrape_data import scrape_flipkart_products, save_to_csv
-#from data_ingestion.ingestion_pipeline import DataIngestion
+
+from prod_assistant.etl.data_scrapper import FlipkartScrapper
+from prod_assistant.etl.data_ingestion import DataIngestion
 import os
 
+flipcart_scrapper =FlipkartScrapper()
 output_path = "data/product_reviews.csv"
 st.title("📦 Product Review Scraper")
 
@@ -38,7 +40,7 @@ if st.button("🚀 Start Scraping"):
         final_data = []
         for query in product_inputs:
             st.write(f"🔍 Searching for: {query}")
-            results = scrape_flipkart_products(query, max_products=max_products, review_count=review_count)
+            results = flipcart_scrapper.scrape_flipkart_product(query, max_products=max_products, review_count=review_count)
             final_data.extend(results)
 
         unique_products = {}
@@ -51,7 +53,7 @@ if st.button("🚀 Start Scraping"):
         
         final_data = list(unique_products.values())
         st.session_state["scraped_data"] = final_data  # ✅ store in session
-        save_to_csv(final_data, output_path)
+        flipcart_scrapper.save_to_csv(final_data, output_path)
         st.success("✅ Data saved to `data/product_reviews.csv`")
         st.download_button("📥 Download CSV", data=open(output_path, "rb"), file_name="product_reviews.csv")
 

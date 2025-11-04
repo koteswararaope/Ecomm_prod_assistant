@@ -3,3 +3,7 @@ venv/
 *.docx
 *.env
 *.log
+*.vscode/
+*.vscode
+data
+data/

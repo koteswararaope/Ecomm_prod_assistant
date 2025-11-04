@@ -14,7 +14,7 @@ class DataIngestion:
     def __init__(self):
         print("Initializing DataIngestion pipeline...")
         self.model_loader=ModelLoader()
-        self._load_env_variables()
+        self._load_env()
         self.csv_path = self._get_csv_path()
         self.product_data = self._load_csv()
         self.config=load_config()

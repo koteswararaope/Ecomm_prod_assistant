@@ -14,7 +14,7 @@ python-dotenv
 python-multipart
 selenium
 streamlit
-undetected-chromedriver
+undetected-chromedriver==3.5.4
 uvicorn
 structlog
 setuptools
